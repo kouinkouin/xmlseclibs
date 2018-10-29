@@ -1129,12 +1129,12 @@ class XMLSecurityDSig
             $xpath->registerNamespace('secdsig', self::XMLDSIGNS);
         }
 
-        $key_id_ns = null;
-        $key_id_pfx = "";
+        $key_id_prefix_ns = null;
+        $key_id_prefix = "";
         $key_id_name = "Id";
-        if (! empty($options["key_id_prefix"]))    { $key_id_pfx  = $options["key_id_prefix"]; }
-        if (! empty($options["key_id_prefix_ns"])) { $key_id_ns   = $options["key_id_prefix_ns"]; }
-        if (! empty($options["key_id_name"]))      { $key_id_name = $options["key_id_name"]; }
+        if (! empty($options["key_id_prefix"]))    { $key_id_prefix    = $options["key_id_prefix"]; }
+        if (! empty($options["key_id_prefix_ns"])) { $key_id_prefix_ns = $options["key_id_prefix_ns"]; }
+        if (! empty($options["key_id_name"]))      { $key_id_name      = $options["key_id_name"]; }
 
         $query = "./secdsig:KeyInfo";
         $nodeset = $xpath->query($query, $this->sigNode);
@@ -1264,3 +1264,4 @@ class XMLSecurityDSig
         return $this->validatedNodes;
     }
 }
+
